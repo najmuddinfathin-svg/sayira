@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Quiz App</title>
+  <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+.quiz {
+  width: 100%;
+  max-width: 650px;
+}
+
+
+/* =========================
+   QUESTION CARD
+========================= */
+
+.question,
+.result {
+  padding: 35px;
+
+  background: white;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+
+/* =========================
+   QUESTION
+========================= */
+
+.question h1 {
+  margin-bottom: 25px;
+
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+
+/* =========================
+   ANSWERS
+========================= */
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answers input {
+  display: none;
+}
+
+.answers label {
+  display: block;
+
+  padding: 16px 18px;
+
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.answers label:hover {
+  border-color: #9ca3af;
+}
+
+
+/* =========================
+   WRONG ANSWER
+========================= */
+
+.answers input:not(:checked) + label {
+  background: white;
+}
+
+
+/* Ketika jawaban salah dipilih */
+.answers input:checked:not(:is(#q1-c, #q2-b, #q3-a, #q4-c)) + label {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #b91c1c;
+}
+
+
+/* =========================
+   CORRECT ANSWER
+========================= */
+
+/* Question 1 */
+#q1-c:checked + label {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #15803d;
+}
+
+/* Question 2 */
+#q2-b:checked + label {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #15803d;
+}
+
+/* Question 3 */
+#q3-a:checked + label {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #15803d;
+}
+
+/* Question 4 */
+#q4-c:checked + label {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #15803d;
+}
+
+
+/* =========================
+   FEEDBACK
+========================= */
+
+.feedback {
+  margin-top: 20px;
+}
+
+.feedback p {
+  display: none;
+}
+.answers:has(input:checked) ~ .feedback {
+  display: block;
+}
+
+
+/* =========================
+   NEXT BUTTON
+========================= */
+
+.next {
+  display: none;
+
+  width: fit-content;
+
+  margin-top: 25px;
+  margin-left: auto;
+
+  padding: 12px 22px;
+
+  border-radius: 8px;
+
+  background: #111827;
+  color: white;
+
+  text-decoration: none;
+}
+
+
+/* Tampilkan Next setelah pilihan dipilih */
+.answers:has(input:checked) ~ .next {
+  display: inline-block;
+}
+
+
+/* =========================
+   QUESTION NAVIGATION
+========================= */
+
+.question {
+  display: none;
+}
+
+.question:target {
+  display: block;
+}
+
+
+/* Pertanyaan pertama muncul secara default */
+.question-1 {
+  display: block;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result {
+  display: none;
+
+  text-align: center;
+}
+
+.result:target {
+  display: block;
+}
+
+.result-icon {
+  margin-bottom: 15px;
+  font-size: 50px;
+}
+
+.result h1 {
+  margin-bottom: 15px;
+}
+
+.result p {
+  margin-bottom: 5px;
+  color: #6b7280;
+}
+
+.result strong {
+  display: block;
+
+  margin: 10px 0 25px;
+
+  font-size: 48px;
+}
+
+.restart {
+  display: inline-block;
+
+  padding: 12px 25px;
+
+  border-radius: 8px;
+
+  background: #111827;
+  color: white;
+
+  text-decoration: none;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+  .question,
+  .result {
+    padding: 25px 20px;
+  }
+
+  .question h1 {
+    font-size: 20px;
+  }
+
+  .quiz-header {
+    font-size: 12px;
+  }
+
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <main class="quiz">
+
+    <!-- QUESTION 1 -->
+    <section class="question question-1">
+
+      <div class="quiz-header">
+        <span>Question 1 of 4</span>
+        <span>Score: 0</span>
+      </div>
+
+      <h1>siapa perempuan yang paling manis ?</h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q1" id="q1-a">
+        <label for="q1-a">ummu salamah</label>
+
+        <input type="radio" name="q1" id="q1-b">
+        <label for="q1-b">fatimah</label>
+
+        <input type="radio" name="q1" id="q1-c">
+        <label class="correct" for="q1-c">sayira</label>
+
+        <input type="radio" name="q1" id="q1-d">
+        <label for="q1-d">aisyah</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-2" class="next">Next →</a>
+
+    </section>
+
+
+    <!-- QUESTION 2 -->
+    <section class="question question-2" id="question-2">
+
+      <div class="quiz-header">
+        <span>Question 2 of 4</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>apa makanan kesukaan sayira</h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q2" id="q2-a">
+        <label for="q2-a">ayam geprek</label>
+
+        <input type="radio" name="q2" id="q2-b">
+        <label class="correct" for="q2-b">seblak</label>
+
+        <input type="radio" name="q2" id="q2-c">
+        <label for="q2-c">nasi goreng</label>
+
+        <input type="radio" name="q2" id="q2-d">
+        <label for="q2-d">mie goreng</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-3" class="next">Next →</a>
+
+    </section>
+
+
+    <!-- QUESTION 3 -->
+    <section class="question question-3" id="question-3">
+
+      <div class="quiz-header">
+        <span>Question 3 of 4</span>
+        <span>Score: 2</span>
+      </div>
+
+      <h1>sebutkan keluarga yang paling sayang sama sayira ?</h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q3" id="q3-a">
+        <label class="correct" for="q3-a">teh sahel</label>
+
+        <input type="radio" name="q3" id="q3-b">
+        <label for="q3-b">teh safna</label>
+
+        <input type="radio" name="q3" id="q3-c">
+        <label for="q3-c">fathia</label>
+
+        <input type="radio" name="q3" id="q3-d">
+        <label for="q3-d">syamila</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-4" class="next">Next →</a>
+
+    </section>
+
+
+    <!-- QUESTION 4 -->
+    <section class="question question-4" id="question-4">
+
+      <div class="quiz-header">
+        <span>Question 4 of 4</span>
+        <span>Score: 3</span>
+      </div>
+
+      <h1>siapa yang suka usil ke sayira ?</h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q4" id="q4-a">
+        <label for="q4-a">syamila</label>
+
+        <input type="radio" name="q4" id="q4-b">
+        <label for="q4-b">jairan</label>
+
+        <input type="radio" name="q4" id="q4-c">
+        <label class="correct" for="q4-c">elfath</label>
+
+        <input type="radio" name="q4" id="q4-d">
+        <label for="q4-d">fathia</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#result" class="next">Finish Quiz →</a>
+
+    </section>
+
+
+    <!-- RESULT -->
+    <section class="result" id="result">
+
+      <div class="result-icon">🎉</div>
+
+      <h1>Quiz Completed!</h1>
+
+      <p>Your Score</p>
+
+      <strong>4 / 4</strong>
+
+      <a href="#" class="restart">Try Again</a>
+
+    </section>
+
+  </main>
+
+  <script> 
+    const questions = document.querySelectorAll('.question');
+
+let currentQuestion = 0;
+let score = 0;
+
+
+// Ambil semua question
+questions.forEach((question, index) => {
+
+    const answers = question.querySelectorAll('input[type="radio"]');
+    const nextButton = question.querySelector('.next');
+
+    const wrongMessage = question.querySelector('.wrong');
+    const correctMessage = question.querySelector('.correct-message');
+
+    const scoreText = question.querySelector('.quiz-header span:last-child');
+
+
+    // Sembunyikan feedback terlebih dahulu
+    wrongMessage.style.display = 'none';
+    correctMessage.style.display = 'none';
+
+
+    answers.forEach(answer => {
+
+        answer.addEventListener('change', function () {
+
+            // Setelah memilih, semua jawaban dikunci
+            answers.forEach(input => {
+                input.disabled = true;
+            });
+
+
+            // Cari label dari input yang dipilih
+            const selectedLabel = question.querySelector(
+                `label[for="${this.id}"]`
+            );
+
+
+            // Cari jawaban yang benar
+            const correctLabel = question.querySelector('label.correct');
+
+
+            // Cek jawaban
+            if (selectedLabel === correctLabel) {
+
+                score++;
+
+                correctMessage.style.display = 'block';
+
+            } else {
+
+                wrongMessage.style.display = 'block';
+
+                // Tampilkan jawaban yang benar
+                correctLabel.style.border = '2px solid green';
+            }
+
+
+            // Update score
+            scoreText.textContent = `Score: ${score}`;
+
+
+            // Ubah teks button pada soal terakhir
+            if (index === questions.length - 1) {
+                nextButton.textContent = 'Finish Quiz →';
+            }
+        });
+    });
+});
+
+
+// RESULT
+const resultSection = document.querySelector('#result');
+const resultScore = resultSection.querySelector('strong');
+
+
+// Ketika klik Finish Quiz
+const finishButton = document.querySelector('.question-4 .next');
+
+finishButton.addEventListener('click', function () {
+
+    resultScore.textContent = `${score} / ${questions.length}`;
+
+});
+
+
+// RESTART
+const restartButton = document.querySelector('.restart');
+
+restartButton.addEventListener('click', function (event) {
+
+    event.preventDefault();
+
+    // Reset score
+    score = 0;
+    currentQuestion = 0;
+
+
+    // Reset semua question
+    questions.forEach(question => {
+
+        const answers = question.querySelectorAll(
+            'input[type="radio"]'
+        );
+
+        const wrongMessage = question.querySelector('.wrong');
+        const correctMessage = question.querySelector('.correct-message');
+
+        const correctLabel = question.querySelector('label.correct');
+
+        answers.forEach(answer => {
+            answer.checked = false;
+            answer.disabled = false;
+        });
+
+        wrongMessage.style.display = 'none';
+        correctMessage.style.display = 'none';
+
+        correctLabel.style.border = '';
+
+        const scoreText = question.querySelector(
+            '.quiz-header span:last-child'
+        );
+
+        scoreText.textContent = 'Score: 0';
+    });
+
+
+    // Kembali ke question pertama
+    window.location.hash = '';
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+  </script>
+</body>
+</html>
