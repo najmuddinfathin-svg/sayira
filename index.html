@@ -122,7 +122,7 @@ body {
 
 
 /* Ketika jawaban salah dipilih */
-.answers input:checked:not(:is(#q1-c, #q2-b, #q3-a, #q4-c)) + label {
+.answers input:checked + label:not(.correct) {
   background: #fee2e2;
   border-color: #ef4444;
   color: #b91c1c;
@@ -134,28 +134,7 @@ body {
 ========================= */
 
 /* Question 1 */
-#q1-c:checked + label {
-  background: #dcfce7;
-  border-color: #22c55e;
-  color: #15803d;
-}
-
-/* Question 2 */
-#q2-b:checked + label {
-  background: #dcfce7;
-  border-color: #22c55e;
-  color: #15803d;
-}
-
-/* Question 3 */
-#q3-a:checked + label {
-  background: #dcfce7;
-  border-color: #22c55e;
-  color: #15803d;
-}
-
-/* Question 4 */
-#q4-c:checked + label {
+.answers input:checked + label.correct {
   background: #dcfce7;
   border-color: #22c55e;
   color: #15803d;
@@ -309,25 +288,25 @@ body {
     <section class="question question-1">
 
       <div class="quiz-header">
-        <span>Question 1 of 4</span>
+        <span>Question 1 of 15</span>
         <span>Score: 0</span>
       </div>
 
-      <h1>siapa perempuan yang paling manis ?</h1>
+      <h1>apa hobi abi nya sayira ?</h1>
 
       <div class="answers">
 
         <input type="radio" name="q1" id="q1-a">
-        <label for="q1-a">ummu salamah</label>
+        <label for="q1-a">main game</label>
 
         <input type="radio" name="q1" id="q1-b">
-        <label for="q1-b">fatimah</label>
+        <label for="q1-b">layangan</label>
 
         <input type="radio" name="q1" id="q1-c">
-        <label class="correct" for="q1-c">sayira</label>
+        <label class="correct" for="q1-c">ketapel</label>
 
         <input type="radio" name="q1" id="q1-d">
-        <label for="q1-d">aisyah</label>
+        <label for="q1-d">main bola</label>
 
       </div>
 
@@ -345,25 +324,25 @@ body {
     <section class="question question-2" id="question-2">
 
       <div class="quiz-header">
-        <span>Question 2 of 4</span>
+        <span>Question 2 of 15</span>
         <span>Score: 1</span>
       </div>
 
-      <h1>apa makanan kesukaan sayira</h1>
+      <h1>apa salah satu hobi kesukaan nya teh sahel ? </h1>
 
       <div class="answers">
 
         <input type="radio" name="q2" id="q2-a">
-        <label for="q2-a">ayam geprek</label>
+        <label for="q2-a">kaligrafi</label>
 
         <input type="radio" name="q2" id="q2-b">
-        <label class="correct" for="q2-b">seblak</label>
+        <label class="correct" for="q2-b">rubik</label>
 
         <input type="radio" name="q2" id="q2-c">
-        <label for="q2-c">nasi goreng</label>
+        <label for="q2-c">makan</label>
 
         <input type="radio" name="q2" id="q2-d">
-        <label for="q2-d">mie goreng</label>
+        <label for="q2-d">nonton</label>
 
       </div>
 
@@ -381,25 +360,25 @@ body {
     <section class="question question-3" id="question-3">
 
       <div class="quiz-header">
-        <span>Question 3 of 4</span>
-        <span>Score: 2</span>
+        <span>Question 3 of 15</span>
+        <span>Score: 1</span>
       </div>
 
-      <h1>sebutkan keluarga yang paling sayang sama sayira ?</h1>
+      <h1>siapa ke pop kesukaanya teh safna ?</h1>
 
       <div class="answers">
 
         <input type="radio" name="q3" id="q3-a">
-        <label class="correct" for="q3-a">teh sahel</label>
+        <label class="correct" for="q3-a">Sunghon</label>
 
         <input type="radio" name="q3" id="q3-b">
-        <label for="q3-b">teh safna</label>
+        <label for="q3-b">Sunoo</label>
 
         <input type="radio" name="q3" id="q3-c">
-        <label for="q3-c">fathia</label>
+        <label for="q3-c">Jongwon</label>
 
         <input type="radio" name="q3" id="q3-d">
-        <label for="q3-d">syamila</label>
+        <label for="q3-d">Jay</label>
 
       </div>
 
@@ -412,30 +391,378 @@ body {
 
     </section>
 
+    <!-- question 4 -->
 
-    <!-- QUESTION 4 -->
+    <!-- QUESTION 2 -->
     <section class="question question-4" id="question-4">
 
       <div class="quiz-header">
-        <span>Question 4 of 4</span>
-        <span>Score: 3</span>
+        <span>Question 4 of 15</span>
+        <span>Score: 1</span>
       </div>
 
-      <h1>siapa yang suka usil ke sayira ?</h1>
+      <h1>siapa temen deket nya jairan ? </h1>
 
       <div class="answers">
 
         <input type="radio" name="q4" id="q4-a">
-        <label for="q4-a">syamila</label>
+        <label for="q4-a">dais</label>
 
         <input type="radio" name="q4" id="q4-b">
-        <label for="q4-b">jairan</label>
+        <label class="correct" for="q4-b">ridho</label>
 
         <input type="radio" name="q4" id="q4-c">
-        <label class="correct" for="q4-c">elfath</label>
+        <label for="q4-c">syahwan</label>
 
         <input type="radio" name="q4" id="q4-d">
-        <label for="q4-d">fathia</label>
+        <label for="q4-d">cahya</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-5" class="next">Next →</a>
+
+    </section>
+
+    <!-- QUESTION 2 -->
+    <section class="question question-5" id="question-5">
+
+      <div class="quiz-header">
+        <span>Question 5 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>apa tontonan kesukaan sayira ? </h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q5" id="q5-a">
+        <label for="q5-a">hollywood</label>
+
+        <input type="radio" name="q5" id="q5-b">
+        <label for="q5-b">sinetron</label>
+
+        <input type="radio" name="q5" id="q5-c">
+        <label for="q5-c">anime</label>
+
+        <input type="radio" name="q5" id="q5-d">
+        <label  class="correct" for="q5-d">drakor</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-6" class="next">Next →</a>
+
+    </section>
+
+    <!-- QUESTION 2 -->
+    <section class="question question-6" id="question-6">
+
+      <div class="quiz-header">
+        <span>Question 6 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>hal apa yang dilakukan k qeis setiap hari</h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q6" id="q6-a">
+        <label for="q6-a">belajar</label>
+
+        <input type="radio" name="q6" id="q6-b">
+        <label for="q6-b">kerja</label>
+
+        <input type="radio" name="q6" id="q6-c">
+        <label class="correct" for="q6-c">mendoakan sayira</label>
+
+        <input type="radio" name="q6" id="q6-d">
+        <label for="q6-d">main bola</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-7" class="next">Next →</a>
+
+    </section>
+
+    <!-- QUESTION 2 -->
+    <section class="question question-7" id="question-7">
+
+      <div class="quiz-header">
+        <span>Question 7 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>sebutkan nomer handphone nya sayira ? </h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q7" id="q7-a">
+        <label for="q7-a">085817453099</label>
+
+        <input type="radio" name="q7" id="q7-b">
+        <label for="q7-b">085817563099</label>
+
+        <input type="radio" name="q7" id="q7-c">
+        <label class="correct" for="q7-c">085817463099</label>
+
+        <input type="radio" name="q7" id="q7-d">
+        <label for="q7-d">085817463009</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-8" class="next">Next →</a>
+
+    </section>
+
+
+        <section class="question question-8" id="question-8">
+
+      <div class="quiz-header">
+        <span>Question 8 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>elfath di botak karena apa ? </h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q8" id="q8-a">
+        <label class="correct" for="q8-a">ngeroko</label>
+
+        <input type="radio" name="q8" id="q8-b">
+        <label for="q8-b">berantem</label>
+
+        <input type="radio" name="q8" id="q8-c">
+        <label for="q8-c">kabur</label>
+
+        <input type="radio" name="q8" id="q8-d">
+        <label for="q8-d">ngomong kasar</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-9" class="next">Next →</a>
+
+    </section>
+
+    <section class="question question-9" id="question-9">
+
+      <div class="quiz-header">
+        <span>Question 9 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>apa bahasa inggris nya 'saya suka kamu' ? </h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q9" id="q9-a">
+        <label for="q9-a">I Miss You</label>
+
+        <input type="radio" name="q9" id="q9-b">
+        <label for="q9-b">I Look You</label>
+
+        <input type="radio" name="q9" id="q9-c">
+        <label class="correct" for="q9-c">I Love You</label>
+
+        <input type="radio" name="q9" id="q9-d">
+        <label for="q9-d">I Hate You</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-10" class="next">Next →</a>
+
+    </section>
+
+
+    <section class="question question-10" id="question-10">
+
+      <div class="quiz-header">
+        <span>Question 10 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>ada berapa temen angkatan putrinya sayira ? </h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q10" id="q10-a">
+        <label for="q10-a">18</label>
+
+        <input type="radio" name="q10" id="q10-b">
+        <label for="q10-b">15</label>
+
+        <input type="radio" name="q10" id="q10-c">
+        <label for="q10-c">17</label>
+
+        <input type="radio" name="q10" id="q10-d">
+        <label class="correct" for="q10-d">16</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-11" class="next">Next →</a>
+
+    </section>
+
+        <section class="question question-11" id="question-11">
+
+      <div class="quiz-header">
+        <span>Question 11 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>ada berapa pengikut ig nya sayira ? </h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q11" id="q11-a">
+        <label for="q11-a">345</label>
+
+        <input type="radio" name="q11" id="q11-b">
+        <label class="correct" for="q11-b">351</label>
+
+        <input type="radio" name="q11" id="q11-c">
+        <label for="q11-c">346</label>
+
+        <input type="radio" name="q11" id="q11-d">
+        <label for="q11-d">343</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-12" class="next">Next →</a>
+
+    </section>
+
+    <section class="question question-12" id="question-12">
+
+      <div class="quiz-header">
+        <span>Question 12 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>sebut lagu kesukaanya k qeis  ? </h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q12" id="q12-a">
+        <label for="q12-a">Allan Walker</label>
+
+        <input type="radio" name="q12" id="q12-b">
+        <label for="q12-b">I Love You So much</label>
+
+        <input type="radio" name="q12" id="q12-c">
+        <label for="q12-c">Rewrite The Stars</label>
+
+        <input type="radio" name="q12" id="q12-d">
+        <label class="correct" for="q12-d">Rockabye</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-13" class="next">Next →</a>
+
+    </section>
+
+    <section class="question question-13" id="question-13">
+
+      <div class="quiz-header">
+        <span>Question 13 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>berapa tinggi nya sayira ? </h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q13" id="q13-a">
+        <label for="q13-a">150 cm</label>
+
+        <input type="radio" name="q13" id="q13-b">
+        <label for="q13-b">148 cm</label>
+
+        <input type="radio" name="q13" id="q13-c">
+        <label class="correct" for="q13-c">149 cm</label>
+
+        <input type="radio" name="q13" id="q13-d">
+        <label for="q13-d">155 cm</label>
+
+      </div>
+
+      <div class="feedback">
+        <p class="wrong">❌ Wrong answer</p>
+        <p class="correct-message">✅ Correct answer!</p>
+      </div>
+
+      <a href="#question-14" class="next">Next →</a>
+
+    </section>
+
+
+    <!-- QUESTION 4 -->
+    <section class="question question-14" id="question-14">
+
+      <div class="quiz-header">
+        <span>Question 14 of 15</span>
+        <span>Score: 1</span>
+      </div>
+
+      <h1>ada berapa pengikut ig nya teh sahel ?</h1>
+
+      <div class="answers">
+
+        <input type="radio" name="q14" id="q14-a">
+        <label class="correct" for="q14-a">367</label>
+
+        <input type="radio" name="q14" id="q14-b">
+        <label for="q14-b">420</label>
+
+        <input type="radio" name="q14" id="q14-c">
+        <label for="q14-c">298</label>
+
+        <input type="radio" name="q14" id="q14-d">
+        <label for="q14-d">354</label>
 
       </div>
 
@@ -458,7 +785,7 @@ body {
 
       <p>Your Score</p>
 
-      <strong>4 / 4</strong>
+      <strong>14 / 14</strong>
 
       <a href="#" class="restart">Try Again</a>
 
@@ -545,7 +872,8 @@ const resultScore = resultSection.querySelector('strong');
 
 
 // Ketika klik Finish Quiz
-const finishButton = document.querySelector('.question-4 .next');
+const finishButton =
+    questions[questions.length - 1].querySelector('.next');
 
 finishButton.addEventListener('click', function () {
 
